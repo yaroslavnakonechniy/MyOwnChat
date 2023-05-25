@@ -7,7 +7,7 @@ import Messages from './components/Messages/Messages';
 import Music from './components/Music/Music';
 import Foto from './components/Foto/Foto';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Wer from './components/Wer/Wer';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
@@ -23,7 +23,7 @@ const App = (props) => {
         <div className="app-wrapper-content">
           <Routes>
             <Route path='/profile' element={<Profile store={props.store} />}/>
-            <Route path='/dialogs' element={<Dialogs stateDialog={props.state.MessagesPage} store={props.store}/>}/>
+            <Route path='/dialogs' element={<DialogsContainer stateDialog={props.state.MessagesPage} store={props.store}/>}/>
             <Route path='/messages' element={<Messages />}/>
             <Route path='/news' element={<News />}/>
             <Route path='/music' element={<Music />}/>
