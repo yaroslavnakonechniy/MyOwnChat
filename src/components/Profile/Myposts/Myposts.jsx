@@ -1,25 +1,26 @@
 import React from "react";
 import s from './Myposts.module.css'
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostActionCreator} from '../../../redux/store';
+
 
 const Myposts = (props) => {
 
 
 
-    let PostDataElements = props.posts.PostPage.posts.map( p => <Post name={p.name} massage={p.message}/>);
+    let PostDataElements = props.posts.map( p => <Post name={p.name} massage={p.message}/>);
 
     let newPostElement = React.createRef();
 
 
-    let addPost = () => {
-        props.dispatch(addPostActionCreator());
+    let onAddPost = () => {
+        props.addPost();
+        
     
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.dispatch(updateNewPostActionCreator(text));
+        props.updateNewPostText(text);
         
     }
 
@@ -32,7 +33,7 @@ const Myposts = (props) => {
                     
                 </div>
                 <div>
-                    <button onClick={ addPost }>Add Post</button>
+                    <button onClick={ onAddPost }>Add Post</button>
                 </div>
 
             </div>

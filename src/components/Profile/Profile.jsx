@@ -1,6 +1,6 @@
 import React from "react";
 
-import Myposts from "./Myposts/Myposts";
+import MypostsContainer from "./Myposts/MypostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
@@ -9,10 +9,7 @@ const Profile = (props) => {
     return  (
       <div >
         <ProfileInfo />
-        <Myposts  posts={props.statePost} 
-                  newPostText = {props.statePost.PostPage.newPostText}
-                  dispatch={props.dispatch}
-                  
+        <MypostsContainer  store = { props.store }
                   />
   
       </div>

@@ -14,7 +14,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 
 const App = (props) => {
-debugger;
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -22,7 +22,7 @@ debugger;
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path='/profile' element={<Profile statePost={props.state}  dispatch={props.dispatch} />}/>
+            <Route path='/profile' element={<Profile store={props.store} />}/>
             <Route path='/dialogs' element={<Dialogs stateDialog={props.state.MessagesPage} store={props.store}/>}/>
             <Route path='/messages' element={<Messages />}/>
             <Route path='/news' element={<News />}/>
