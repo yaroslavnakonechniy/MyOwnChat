@@ -1,0 +1,31 @@
+.friends{
+    background-color: rgb(246, 196, 110);
+    padding: 5px;
+}
+
+.capter{
+    padding: 10px;
+    color:white;
+    text-align:center;
+    background-color: rgb(251, 164, 33);
+    
+}
+
+
+.content{
+    text-align: center;
+    padding: 3px;
+    background-color: rgb(191, 248, 125);
+    
+}
+
+.item img {
+    width: 40px;
+    border-radius: 50%;
+}
+.item {
+    display: inline-block;
+    padding: 9px;
+    
+    background-color: bisque;
+}
