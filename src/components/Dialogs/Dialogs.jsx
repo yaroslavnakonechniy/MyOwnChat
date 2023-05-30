@@ -5,22 +5,22 @@ import Messages from './Messages/Messages.jsx';
 
 
 const Dialogs = (props) => {
-debugger;
-    let DialogsDataElements = props.messages.DialogsData.map( d => <DialogItem  name={d.name} id={d.id} img={d.img}/> );
-    let MessagesDataElements = props.messages.MessagesData.map( m => <Messages message = {m.message}/>);
+
+    let DialogsDataElements = props.messages.DialogsData.map( d => <DialogItem  name={d.name} key={d.id} id={d.id} img={d.img}/> );
+    let MessagesDataElements = props.messages.MessagesData.map( m => <Messages message = {m.message} key={m.id}/>);
     let newMessageBodyM = props.messages.NewMessagesBody;
     let newMessageElement = React.createRef();
 
     let SendMessage = () => {
         props.onSendMessageClick();
     }
-
+debugger;
     let newMessage = () => {
         let newbody = newMessageElement.current.value;
-        props.updateBodyOfCreator(newbody);
+        props.updateNewMessage(newbody);
         
     }
-
+    debugger;
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItem}>
