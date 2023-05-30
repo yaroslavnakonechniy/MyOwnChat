@@ -5,7 +5,7 @@ import Messages from './Messages/Messages.jsx';
 
 
 const Dialogs = (props) => {
-
+debugger;
     let DialogsDataElements = props.messages.DialogsData.map( d => <DialogItem  name={d.name} id={d.id} img={d.img}/> );
     let MessagesDataElements = props.messages.MessagesData.map( m => <Messages message = {m.message}/>);
     let newMessageBodyM = props.messages.NewMessagesBody;
