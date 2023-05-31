@@ -8,6 +8,7 @@ import Music from './components/Music/Music';
 import Foto from './components/Foto/Foto';
 import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import User from './components/User/User';
 import Wer from './components/Wer/Wer';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
@@ -29,6 +30,7 @@ const App = (props) => {
             <Route path='/music' element={<Music />}/>
             <Route path='/foto' element={<Foto />}/>
             <Route path='/wer' element={<Wer />}/>
+            <Route path='/user' element={<User />}/>
           </Routes>
         </div>
       </div>
