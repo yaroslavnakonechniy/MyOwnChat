@@ -10,7 +10,7 @@ let mapStateToProps = (state) => {
         messages: state.MessagesPage
     }
 }
-debugger;
+
 
 let mapDispatchToProps = (dispatch) => {
     return {
