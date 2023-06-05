@@ -8,9 +8,10 @@ import Music from './components/Music/Music';
 import Foto from './components/Foto/Foto';
 import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
-import User from './components/User/User';
+import UserContainer from './components/User/UserContainer';
 import Wer from './components/Wer/Wer';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+
 
 
 
@@ -25,12 +26,13 @@ const App = (props) => {
           <Routes>
             <Route path='/profile' element={<Profile />}/>
             <Route path='/dialogs' element={<DialogsContainer />}/>
+            <Route path='/user' element={<UserContainer />}/>
             <Route path='/messages' element={<Messages />}/>
             <Route path='/news' element={<News />}/>
             <Route path='/music' element={<Music />}/>
             <Route path='/foto' element={<Foto />}/>
             <Route path='/wer' element={<Wer />}/>
-            <Route path='/user' element={<User />}/>
+            
           </Routes>
         </div>
       </div>
