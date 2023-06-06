@@ -7,7 +7,7 @@ import userPhoto from  "../../assets/images/user.png";
 const User = (props) => {
 debugger;
 
-    
+let getUsers = () => {
     if (props.users.length === 0) {
 
 
@@ -17,8 +17,10 @@ debugger;
         });
 
     }
+}
 
     return <div className={s.name}>
+        <button onClick={getUsers}>Get Users</button>
         {
             props.users.map( u => <div key={u.id}>
                 <span>
