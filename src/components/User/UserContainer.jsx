@@ -1,12 +1,15 @@
 import React from "react";
-import User from "./User";
+import UserC from "./UserC";
 //import {sendMassegeCreator,updateBodyOfCreator} from '../../redux/message-reducer';
 import {connect} from "react-redux";
-import { followAC, unfollowAC, setUsersAC} from "../../redux/user-reducer";
+import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setTotalUsersCountAC} from "../../redux/user-reducer";
 
 let mapStateToProps = (state) => {
     return {
-        users: state.UserPage.users
+        users: state.UserPage.users,
+        pageSize: state.UserPage.pageSize,
+        totalUserCount: state.UserPage.totalUserCount,
+        currentPage: state.UserPage.currentPage
     }
 }
 
@@ -21,11 +24,17 @@ let mapDispatchToProps = (dispatch) => {
         },
         setUsers: (users) => {
             dispatch(setUsersAC(users));
+        },
+        setCurrentPage: (pageNumber) => {
+            dispatch(setCurrentPageAC(pageNumber))
+        },
+        setTotalUsersCount: (totalCount) => {
+            dispatch(setTotalUsersCountAC(totalCount))
         }
     }
 }
 
-let UserContainer = connect(mapStateToProps, mapDispatchToProps)(User);
+let UserContainer = connect(mapStateToProps, mapDispatchToProps)(UserC);
 
 
 export default UserContainer;
