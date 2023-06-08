@@ -3,7 +3,7 @@ import User from "./User";
 import axios from "axios";
 //import {sendMassegeCreator,updateBodyOfCreator} from '../../redux/message-reducer';
 import {connect} from "react-redux";
-import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setTotalUsersCountAC, toggleIsFetchingAC} from "../../redux/user-reducer";
+import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching} from "../../redux/user-reducer";
 import Preloader from "../common/Preloader/Preloader";
 
 class UserContainer extends React.Component {
@@ -60,28 +60,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId));
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId));
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users));
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber))
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setTotalUsersCountAC(totalCount))
-        },
-        toggleIsFetching: (toggle) => {
-            dispatch(toggleIsFetchingAC(toggle))
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserContainer);
+export default connect(mapStateToProps, {
+    follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching
+})(UserContainer);
