@@ -6,7 +6,7 @@ import News from './components/News/News';
 import Messages from './components/Messages/Messages';
 import Music from './components/Music/Music';
 import Foto from './components/Foto/Foto';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UserContainer from './components/User/UserContainer';
 import Wer from './components/Wer/Wer';
@@ -24,7 +24,7 @@ const App = (props) => {
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path='/profile' element={<Profile />}/>
+            <Route path='/profile' element={<ProfileContainer />}/>
             <Route path='/dialogs' element={<DialogsContainer />}/>
             <Route path='/user' element={<UserContainer />}/>
             <Route path='/messages' element={<Messages />}/>
