@@ -8,19 +8,19 @@ import {useLocation,useNavigate,useParams} from "react-router-dom";
 class ProfileContainer extends React.Component {
 
   componentDidMount(){
-    debugger
+    
     let userId = this.props.router.params.userId;
-    console.log(userId);
-    debugger
+    
+    
     axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+ userId)
     
     .then (response => {
-      debugger
+      
         
         this.props.setUserProfile(response.data);
         
     });
-    debugger
+    
 }
 
   render(){

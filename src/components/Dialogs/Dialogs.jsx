@@ -16,13 +16,13 @@ const Dialogs = (props) => {
     let SendMessage = () => {
         props.onSendMessageClick();
     }
-debugger;
+
     let newMessage = () => {
         let newbody = newMessageElement.current.value;
         props.updateNewMessage(newbody);
         
     }
-    debugger;
+    
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItem}>
