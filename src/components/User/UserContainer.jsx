@@ -3,30 +3,18 @@ import User from "./User";
 import axios from "axios";
 //import {sendMassegeCreator,updateBodyOfCreator} from '../../redux/message-reducer';
 import {connect} from "react-redux";
-import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleFollowingProgress} from "../../redux/user-reducer";
+import { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers} from "../../redux/user-reducer";
 import Preloader from "../common/Preloader/Preloader";
 import {usersAPI} from "../../api/api";
 
 class UserContainer extends React.Component {
 
     componentDidMount(){
-        this.props.toggleIsFetching(true);
-
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then (data => {
-            
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items);
-            this.props.setTotalUsersCount(data.totalCount);
-        });
+       this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChange = (pageNumber) => {
-        this.props.toggleIsFetching(true);
-        this.props.setCurrentPage(pageNumber);
-        usersAPI.getUsers(pageNumber,this.props.pageSize).then (data => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items);
-        });
+        this.props.getUsers(pageNumber, this.props.pageSize);
     }
 
     render() {
@@ -41,7 +29,6 @@ class UserContainer extends React.Component {
                     unfollow = {this.props.unfollow}
                     follow = {this.props.follow}
                     onPageChange = {this.onPageChange}
-                    toggleFollowingProgress = {this.props.toggleFollowingProgress}
                     followingInProgress = {this.props.followingInProgress}
         
                 />
@@ -64,5 +51,4 @@ let mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleFollowingProgress
-})(UserContainer);
+    follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers})(UserContainer);
