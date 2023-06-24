@@ -1,8 +1,9 @@
-import {combineReducers, legacy_createStore as createStore} from "redux"; 
+import {applyMiddleware, combineReducers, legacy_createStore as createStore} from "redux"; 
 import postReducer from './post-reducer';
 import messageReducer from './message-reducer';
 import userReducer from './user-reducer';
 import authReducer from './auth-reducer';
+import thunkMiddleware from 'redux-thunk';
 
 let reducers = combineReducers({
     PostPage: postReducer,
@@ -12,7 +13,7 @@ let reducers = combineReducers({
 
 });
 
-export let store = createStore(reducers);
+export let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 
 export default store;
