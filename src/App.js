@@ -10,6 +10,7 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UserContainer from './components/User/UserContainer';
 import Wer from './components/Wer/Wer';
+import Login from './components/Login';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 
@@ -32,6 +33,7 @@ const App = (props) => {
             <Route path='/music' element={<Music />}/>
             <Route path='/foto' element={<Foto />}/>
             <Route path='/wer' element={<Wer />}/>
+            <Route path='/login' element={<Login />}/>
             
           </Routes>
         </div>
