@@ -23,7 +23,8 @@ class ProfileContainer extends React.Component {
 
 }
  let mapStateToProps = (state) => ({
-  profile: state.PostPage.profile
+  profile: state.PostPage.profile,
+  isAuth: state.Auth.isAuth
  })
 
 function withRouter(Component) {
