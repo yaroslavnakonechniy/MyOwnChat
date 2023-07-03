@@ -1,11 +1,10 @@
 import React from "react";
 import User from "./User";
-import axios from "axios";
 //import {sendMassegeCreator,updateBodyOfCreator} from '../../redux/message-reducer';
 import {connect} from "react-redux";
 import { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers} from "../../redux/user-reducer";
 import Preloader from "../common/Preloader/Preloader";
-import {usersAPI} from "../../api/api";
+import {compose} from "redux";
 
 class UserContainer extends React.Component {
 
@@ -50,5 +49,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {
-    follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers})(UserContainer);
+export default compose(
+    connect(mapStateToProps, {
+    follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers}))(UserContainer);
+
