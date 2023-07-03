@@ -5,6 +5,7 @@ import {sendMassegeCreator,updateBodyOfCreator} from '../../redux/message-reduce
 
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
+import {compose} from "redux";
 
 let mapStateToProps = (state) => {
     return {
@@ -24,29 +25,9 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let AuthRedirectComponent = withAuthRedirect(Dialogs);
 
-let DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
+export default compose (
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Dialogs);
 
-
-
-const DialogsContainer = (props) => {
-
-    let state = props.store.getState().MessagesPage;
-
-    let onSendMessageClick = () => {
-        props.store.dispatch(sendMassegeCreator());
-    }
-
-    let newMessage = (newbody) => {
-        props.store.dispatch(updateBodyOfCreator(newbody));
-        
-    }
-
-    return (<Dialogs onSendMessageClick = {onSendMessageClick} 
-                     updateBodyOfCreator = {newMessage}
-                     messages = {state}  />)
-}
-
-
-export default DialogsContainer;
