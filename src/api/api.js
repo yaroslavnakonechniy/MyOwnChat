@@ -16,17 +16,27 @@ export const usersAPI = {
         });
     },
     follow(userId) {
-        return instanse.post(`follow/${userId}`)
+        return instanse.post(`follow/${userId}`);
 
     },
     unfollow(userId) {
-        return instanse.delete(`unfollow/${userId}`)
+        return instanse.delete(`unfollow/${userId}`);
         
     },
     getProfile(userId) {
-        return instanse.get(`profile/${userId}`)
-    
+        return profileAPI.getProfile(userId);
+    }
+}
 
+export const profileAPI = {
+    getProfile(userId) {
+        return instanse.get(`profile/${userId}`);
+    },
+    getStatus(userId) {
+        return instanse.get(`profile/status/${userId}`);
+    },
+    updateStatus(status) {
+        return instanse.put(`profile/status`, {status: status});
     }
 }
 

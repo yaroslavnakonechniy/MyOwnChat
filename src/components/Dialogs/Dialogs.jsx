@@ -21,7 +21,7 @@ const Dialogs = (props) => {
         props.updateNewMessage(newbody);
         
     }
-    debugger
+    
     if (!props.isAuth) return <Navigate to='/login' />
 
     return (
