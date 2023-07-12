@@ -1,4 +1,3 @@
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MASSEGE = "SEND-MASSEGE";
 
 let initialState = {
@@ -14,25 +13,18 @@ let initialState = {
         {id:2, name: "Vika", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrMPQlg6jN40Dt1Gs5OaBDdGDCnZv6DL4Tzlw_5_Z_&s"},
         {id:3, name: "Oleg", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrMPQlg6jN40Dt1Gs5OaBDdGDCnZv6DL4Tzlw_5_Z_&s" },
         {id:4, name: "Katya", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrMPQlg6jN40Dt1Gs5OaBDdGDCnZv6DL4Tzlw_5_Z_&s"}
-    ],
-    NewMessagesBody : 'qwerty'
+    ]
+    
 };
 
 export const messageReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY :{
-            return {
-                ...state,
-                NewMessagesBody: action.body
-            };
-
-        }
+        
         case SEND_MASSEGE : {
-            let newMessage = state.NewMessagesBody;
+            let newMessage = action.newMessageBody;
             return{
                 ...state,
-                NewMessagesBody: '',
                 MessagesData : [...state.MessagesData, {id:6, message: newMessage}]
             };
 
@@ -42,6 +34,5 @@ export const messageReducer = (state = initialState, action) => {
     }
 }
 
-export const sendMassegeCreator = () => ({ type: SEND_MASSEGE })
-export const updateBodyOfCreator = (text_body) => ( { type:UPDATE_NEW_MESSAGE_BODY, body:text_body })
+export const sendMassegeCreator = (newMessageBody) => ({ type: SEND_MASSEGE, newMessageBody })
 export default messageReducer;
