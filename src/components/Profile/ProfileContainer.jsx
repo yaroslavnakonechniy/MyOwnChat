@@ -11,22 +11,30 @@ class ProfileContainer extends React.Component {
   componentDidMount(){
     
       let userId = this.props.router.params.userId;
-      
+      if(!userId) {
+        userId = this.props.authorazedUserId;
+      }
       this.props.getUserProfile(userId);
       this.props.getStatus(userId);
 
   }
 
   render(){
-    debugger
-    return  <Profile  {...this.props} profile = {this.props.profile} status = {this.props.status} updateStatus ={this.props.updateStatus}/>
+    return  <Profile  {...this.props} 
+                      profile = {this.props.profile} 
+                      status = {this.props.status} 
+                      updateStatus ={this.props.updateStatus}
+    
+    />
   }
 
 }
 
 let mapStateToProps = (state) => ({
   profile: state.PostPage.profile,
-  status: state.PostPage.status
+  status: state.PostPage.status,
+  authorazedUserId: state.Auth.userId,
+  isAuth: state.Auth.isAuth
 })
 
 function withRouter(Component) {
